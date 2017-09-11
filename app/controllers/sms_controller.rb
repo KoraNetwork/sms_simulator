@@ -17,7 +17,11 @@ class SmsController < ApplicationController
     end
     content_type 'text/xml'
     twiml.text
-    ChatBroadcastJob.perform_later(params)
+
+    TwilioBroadcastJob.perform_later({
+                                         phone_number: params["From"],
+                                         message: params["Body"]
+                                     })
   end
 
 end
