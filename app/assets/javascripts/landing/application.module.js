@@ -1,6 +1,6 @@
 (function () {
     "use strict";
-    var SmsSimulatorApp = angular.module('SmsSimulatorApp', [
+    var SmsSimulatorLandingApp = angular.module('SmsSimulatorLandingApp', [
         'ui.router',
         'templates',
         'ngDialog',
@@ -9,39 +9,29 @@
         'fileread',
         'ui.bootstrap',
         'bootstrapLightbox',
-        'ui-rangeSlider',
-        'redactor',
         'formInput.images',
         'formInput.image',
         'toaster',
-        'angular-ladda',
         'AuthHttp',
-        'oitozero.ngSweetAlert',
-        'tablesort'
+        'angular-ladda'
     ]);
 
-    SmsSimulatorApp.config(['$urlRouterProvider', '$stateProvider', '$httpProvider',
+    SmsSimulatorLandingApp.config(['$urlRouterProvider', '$stateProvider', '$httpProvider',
         function ($urlRouterProvider, $stateProvider, $httpProvider) {
 
             $httpProvider.defaults.headers.common['X-Requested-With'] = 'AngularXMLHttpRequest';
 
-            $urlRouterProvider.otherwise('home');
+            $urlRouterProvider.otherwise('/');
 
             $stateProvider
                 .state('home',{
-                  url: '',
-                  templateUrl: 'application/templates/home/index.html',
+                  url: '/',
+                  templateUrl: 'landing/templates/home/index.html',
                   controller: 'HomeController'
-                })
-                .state('profile',{
-                    url: '/profile',
-                    templateUrl: 'application/templates/users/edit.html',
-                    controller: 'UsersController'
                 });
-            // generated routes:
     }]);
 
-    SmsSimulatorApp.run(['$http', '$rootScope', function($http, $rootScope){
+    SmsSimulatorLandingApp.run(['$http', '$rootScope', function($http, $rootScope){
         var csrf_token = $('meta[name="csrf-token"]').attr('content');
         $http.defaults.headers.common['X-CSRF-Token'] = csrf_token;
     }]);

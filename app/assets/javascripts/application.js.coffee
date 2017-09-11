@@ -39,9 +39,7 @@
 #= require sweetalert/dist/sweetalert.min
 #= require angular-sweetAlert/SweetAlert
 # load angular modules
-#= require_tree ./application/factories
-#= require_tree ./application/controllers
-#= require_tree ./application/templates
+#= require ./landing/application.module.js
 #= require_tree .
 
 $(document).ready ->

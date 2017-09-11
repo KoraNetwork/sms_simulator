@@ -25,7 +25,6 @@ end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'pg'
 gem 'slim'
 gem 'slim-rails'
 gem 'angular-rails-templates'
