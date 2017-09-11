@@ -1,0 +1,29 @@
+title: 'SMS'
+methods:
+ -
+   title: Send sms'
+   path: '/sms/send_sms'
+   method: 'post'
+   parameters:
+     -
+       name: 'to_number'
+       type: 'string'
+       required: true
+     -
+       name: 'message'
+       type: 'text'
+       required: true
+   example_responses:
+     -
+       code: 200
+       response: var:ok
+       type: 'json'
+ -
+   title: 'Real time messages'
+   path: '/cable'
+   method: web_socket
+   cookies:
+     -
+       name: phone_number
+   identifier:
+     channel: TwilioChannel
