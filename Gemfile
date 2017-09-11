@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'ng_rails', path: '/Users/user/Documents/work/ng_scaffold'
-
 gem 'rails', '~> 5.1.4'
 gem 'sqlite3'
 gem 'puma', '~> 3.7'

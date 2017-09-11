@@ -1,7 +1,7 @@
 title: 'SMS'
 methods:
  -
-   title: Send sms'
+   title: Send sms
    path: '/sms/send_sms'
    method: 'post'
    parameters:
