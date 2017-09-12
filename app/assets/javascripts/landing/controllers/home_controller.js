@@ -30,6 +30,9 @@
                                 body: trialString(data.body),
                                 incoming: data.incoming
                             });
+                            if($scope.messages.length > 50){
+                                $scope.messages = $scope.messages.slice($scope.messages.length - 50);
+                            }
                             $scope.scroll();
                         });
                     },
@@ -61,7 +64,7 @@
                 };
 
                 $scope.scroll = function(){
-                    $(".screen").animate({ scrollTop: $('.screen').height() }, '500', 'swing');
+                    $(".screen").animate({ scrollTop: 7777 }, '500', 'swing');
                 };
 
                 var trial_string = "Sent from your Twilio trial account";
