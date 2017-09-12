@@ -26,7 +26,10 @@
                 },{
                     received: function(data){
                         $scope.$apply(function(){
-                            $scope.messages.push({ body: trialString(data.body) });
+                            $scope.messages.push({
+                                body: trialString(data.body),
+                                incoming: data.incoming
+                            });
                         });
                     },
                     connected: function(){
