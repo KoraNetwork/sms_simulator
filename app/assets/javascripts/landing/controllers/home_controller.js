@@ -26,7 +26,7 @@
                 },{
                     received: function(data){
                         $scope.$apply(function(){
-                            $scope.messages.push({ body: data.body });
+                            $scope.messages.push({ body: trialString(data.body) });
                         });
                     },
                     connected: function(){
@@ -54,6 +54,12 @@
                     $scope.SmsSocketApp.watcher.send_message($scope.message);
                     $scope.message = '';
                     $scope.formPending = false;
-                }
+                };
+
+                var trial_string = "Sent from your Twilio trial account";
+                var trialString = function(message){
+                    if(message.indexOf(trial_string) > -1) return message.substr(trial_string.length + 3);
+                    else return message;
+                };
             }])
 }());
