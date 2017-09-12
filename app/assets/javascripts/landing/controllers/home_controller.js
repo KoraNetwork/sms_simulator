@@ -12,6 +12,48 @@
                     if($scope.flash.message.length > 0){
                         toaster.pop('success', "", $scope.flash.message);
                     }
-                }, 1000)
+                }, 1000);
+
+                $scope.messages = [];
+                $scope.phone_number = '+14159361767';
+
+                $scope.SmsSocketApp || ($scope.SmsSocketApp = {});
+                $scope.SmsSocketApp.cable = ActionCable.createConsumer();
+
+                $scope.SmsSocketApp.watcher = $scope.SmsSocketApp.cable.subscriptions.create({
+                    channel: "TwilioChannel",
+                    phone_number: $scope.phone_number
+                },{
+                    received: function(data){
+                        $scope.$apply(function(){
+                            $scope.messages.push({ body: data.body });
+                        });
+                    },
+                    connected: function(){
+                        console.log('Connected to TwilioChannel');
+                    },
+                    disconnected: function(){
+                        console.log('Disconnected TwilioChannel');
+                    },
+                    send_message: function(message){
+                        this.perform('speak', {
+                            body: message,
+                            phone_number: $scope.phone_number
+                        })
+                    }
+                });
+
+                $scope.$on("$destroy", function(){
+                    if($scope.SmsSocketApp && $scope.SmsSocketApp.watcher){
+                        $scope.SmsSocketApp.watcher.unsubscribe();
+                    }
+                });
+
+                $scope.send = function() {
+                    $scope.formPending = true;
+                    $scope.SmsSocketApp.watcher.send_message($scope.message);
+                    $scope.message = '';
+                    $scope.formPending = false;
+                }
             }])
 }());

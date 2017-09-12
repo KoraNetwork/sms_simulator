@@ -1,0 +1,13 @@
+.page
+  #tmp
+  .phone-container
+    .new-message
+      form.m-t role="form" novalidate=true ng-submit="send()"
+        input.form-control placeholder="Your message" required="" type="test" ng-model="message"
+      a.send-message data-style="expand-left" ladda="formPending" ng-click="send()"
+        i.fa.fa-paper-plane
+    .screen
+      div class="{{ message.incoming? 'item-left' : 'item-right' }}" ng-repeat="message in messages"
+        div class="{{ message.incoming? 'message-left' : 'message-right' }}"
+          | {{ message.body }}
+      div style="height: 40px; clear: both"

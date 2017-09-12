@@ -27,3 +27,7 @@ methods:
        name: phone_number
    identifier:
      channel: TwilioChannel
+ -
+   title: test
+   path: '/sms/test'
+   method: 'get'

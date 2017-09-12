@@ -4,3 +4,94 @@
   background-size: cover
   background-repeat: no-repeat
   background-image: url(/images/word_map.png)
+  min-width: 400px
+  min-height: 750px
+  overflow: auto
+
+.phone-container
+  margin: 0 auto
+  background-color: transparent
+  position: relative
+  max-width: 400px
+  width: 350px
+  border-radius: 10px
+  height: 700px
+  background-position: center
+  background-size: cover
+  background-repeat: no-repeat
+  background-image: url(/images/phone.png)
+  .new-message
+    position: absolute
+    left: 30px
+    bottom: 90px
+    width: 289px
+    height: 50px
+    background-color: rgba(255, 255, 255, 0.8)
+    z-index: 777
+    padding: 10px 5px
+    form
+      padding: 0 !important
+      margin: 0 !important
+      input.form-control
+        border-radius: 15px
+        margin: 0 !important
+        padding-left: 15px
+        padding-right: 40px
+        &:focus
+          border-color: darkgrey !important
+    a.send-message
+      border: none
+      outline: none
+      position: absolute
+      right: 10px
+      top: 16px
+      color: darkgrey
+      padding: 5px
+      background-color: transparent !important
+      &:hover
+        color: white
+        background-color: green !important
+        border-radius: 100%
+      *
+        background-color: transparent !important
+
+  .screen
+    width: 293px
+    height: 518px
+    background-color: transparent
+    position: absolute
+    top: 91px
+    left: 28px
+    overflow: scroll
+    padding: 15px
+    clear: both
+    .item-left
+      display: block
+      margin: 10px 0
+      float: left
+      clear: both
+      .message-left
+        max-width: 250px
+        width: auto
+        display: inline-block
+        border-radius: 0 10px 10px 10px
+        background-color: lightblue
+        padding: 10px
+    .item-right
+      display: block
+      margin: 10px 0
+      float: right
+      clear: both
+      .message-right
+        max-width: 250px
+        width: auto
+        display: inline-block
+        border-radius: 10px 0 10px 10px
+        background-color: lightgray
+        padding: 10px
+
+.page
+  padding-top: calc(45vh - 380px)
+
+#tmp
+  height: calc(50vh - 400px)
