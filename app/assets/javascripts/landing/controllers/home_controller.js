@@ -30,6 +30,7 @@
                                 body: trialString(data.body),
                                 incoming: data.incoming
                             });
+                            $scope.scroll();
                         });
                     },
                     connected: function(){
@@ -57,6 +58,10 @@
                     $scope.SmsSocketApp.watcher.send_message($scope.message);
                     $scope.message = '';
                     $scope.formPending = false;
+                };
+
+                $scope.scroll = function(){
+                    $(".screen").animate({ scrollTop: $('.screen').height() }, '500', 'swing');
                 };
 
                 var trial_string = "Sent from your Twilio trial account";
