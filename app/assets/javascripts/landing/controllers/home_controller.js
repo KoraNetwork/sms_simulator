@@ -15,7 +15,7 @@
                 }, 1000);
 
                 $scope.messages = [];
-                $scope.phone_number = '+14159361767';
+                $scope.phone_number = '+15623625612';
 
                 $scope.SmsSocketApp || ($scope.SmsSocketApp = {});
                 $scope.SmsSocketApp.cable = ActionCable.createConsumer();
